@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import BookingForm from "@/components/BookingForm";
 
 export default function Home() {
   return (
@@ -121,9 +122,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <BookingForm />
 
       {/* Footer */}
-      <footer id="contact" className="bg-text-dark text-text-light pt-16 pb-8">
+      <footer className="bg-text-dark text-text-light pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div>
