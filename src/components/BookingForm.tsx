@@ -14,11 +14,20 @@ export default function BookingForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Convert FormData to URLSearchParams which Google Forms expects
+    const data = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+      data.append(key, value.toString());
+    }
+
     // Submit to Google Forms using no-cors to avoid CORS errors
     fetch(googleFormActionUrl, {
       method: "POST",
       mode: "no-cors",
-      body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: data.toString(),
     })
       .then(() => {
         setSubmitted(true);
