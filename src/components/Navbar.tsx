@@ -155,13 +155,13 @@ export default function Navbar() {
                           <Link
                             href={link.href}
                             onClick={() => setIsOpen(false)}
-                            className="bg-primary text-black px-12 py-5 rounded-full font-black text-xs uppercase tracking-[0.4em] inline-block shadow-2xl shadow-primary/20 w-full max-w-[300px]"
+                            className="bg-primary text-black px-10 py-4 rounded-full font-black text-xs uppercase tracking-[0.3em] inline-block shadow-2xl shadow-primary/20 w-full max-w-[280px]"
                           >
                             Book Now / Contact
                           </Link>
 
                           {/* Social Links Mobile */}
-                          <div className="flex items-center gap-8">
+                          <div className="flex items-center gap-6">
                             {socialLinks.map((social, si) => (
                               <motion.a
                                 key={social.name}
@@ -171,9 +171,9 @@ export default function Navbar() {
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-primary hover:border-primary transition-all duration-500"
+                                className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-primary hover:border-primary transition-all duration-500"
                               >
-                                <social.icon size={22} />
+                                <social.icon size={20} />
                               </motion.a>
                             ))}
                           </div>
@@ -182,7 +182,7 @@ export default function Navbar() {
                         <Link
                           href={link.href}
                           onClick={() => setIsOpen(false)}
-                          className="text-3xl font-black uppercase tracking-[0.5em] text-white hover:text-primary transition-all duration-500 block py-2"
+                          className="text-2xl font-black uppercase tracking-[0.3em] text-white hover:text-primary transition-all duration-500 block py-2"
                         >
                           {link.name}
                         </Link>
