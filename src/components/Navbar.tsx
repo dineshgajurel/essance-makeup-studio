@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { X, Menu } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,119 +18,126 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
+
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
         isScrolled
-          ? "bg-bg-light/98 shadow-[0_2px_10px_rgba(0,0,0,0.1)]"
-          : "bg-bg-light/95 shadow-[0_2px_10px_rgba(0,0,0,0.05)]"
-      } backdrop-blur-md`}
+          ? "bg-white/90 backdrop-blur-xl shadow-lg py-4"
+          : "bg-transparent py-6"
+      }`}
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-8 py-4">
-        <div className="flex items-center">
-          <Link href="#home">
-            <Image
-              src="/logo.png"
-              alt="Essence Logo"
-              width={120}
-              height={50}
-              className="h-12 w-auto object-contain"
-              priority
-            />
-          </Link>
-        </div>
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 flex justify-between items-center">
+        {/* Logo */}
+        <Link href="#home" className="relative z-[110]">
+          <Image
+            src="/logo.png"
+            alt="Essence Logo"
+            width={140}
+            height={60}
+            className={`h-10 sm:h-12 w-auto object-contain transition-all duration-500 ${isScrolled ? 'brightness-100' : 'brightness-0 invert'}`}
+            priority
+          />
+        </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-8">
-          <li>
-            <Link
-              href="#home"
-              className="font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:-bottom-1 after:left-0 after:bg-primary transition-all duration-300 hover:after:w-full"
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#services"
-              className="font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:-bottom-1 after:left-0 after:bg-primary transition-all duration-300 hover:after:w-full"
-            >
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#about"
-              className="font-medium relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:-bottom-1 after:left-0 after:bg-primary transition-all duration-300 hover:after:w-full"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#contact"
-              className="bg-primary text-text-light px-6 py-3 rounded-full font-medium border-2 border-primary transition-all duration-300 hover:bg-transparent hover:text-primary inline-block"
-            >
-              Book / Contact
-            </Link>
-          </li>
+        <ul className="hidden md:flex items-center gap-10">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              {link.name === "Contact" ? (
+                <Link
+                  href={link.href}
+                  className="bg-primary text-black px-8 py-3 rounded-full font-black text-[10px] uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20"
+                >
+                  Book / Contact
+                </Link>
+              ) : (
+                <Link
+                  href={link.href}
+                  className={`font-black text-[10px] uppercase tracking-[0.2em] transition-all hover:text-primary ${isScrolled ? 'text-black' : 'text-white'}`}
+                >
+                  {link.name}
+                </Link>
+              )}
+            </li>
+          ))}
         </ul>
 
-        {/* Mobile Hamburger */}
-        <div
-          className="md:hidden cursor-pointer flex flex-col gap-1.5 z-50"
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden relative z-[110] p-2"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span
-            className={`block w-6 h-0.5 bg-text-dark transition-all duration-300 ${
-              isOpen ? "translate-y-2 rotate-45" : ""
-            }`}
-          ></span>
-          <span
-            className={`block w-6 h-0.5 bg-text-dark transition-all duration-300 ${
-              isOpen ? "opacity-0" : ""
-            }`}
-          ></span>
-          <span
-            className={`block w-6 h-0.5 bg-text-dark transition-all duration-300 ${
-              isOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          ></span>
-        </div>
+          {isOpen ? (
+            <X size={32} className="text-black" />
+          ) : (
+            <Menu size={32} className={isScrolled ? 'text-black' : 'text-white'} />
+          )}
+        </button>
 
-        {/* Mobile Menu */}
-        <div
-          className={`fixed inset-0 bg-bg-light flex flex-col items-center justify-center transition-transform duration-300 ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
-          } md:hidden`}
-        >
-          <ul className="flex flex-col gap-8 text-center text-xl">
-            <li>
-              <Link href="#home" onClick={() => setIsOpen(false)}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="#services" onClick={() => setIsOpen(false)}>
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="#about" onClick={() => setIsOpen(false)}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="bg-primary text-text-light px-8 py-3 rounded-full font-medium border-2 border-primary"
-              >
-                Book / Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed inset-0 bg-white z-[105] flex flex-col items-center justify-center p-10"
+            >
+              <div className="absolute top-10 left-10 opacity-10">
+                <Image src="/logo.png" alt="Essence" width={200} height={80} className="grayscale" />
+              </div>
+
+              <ul className="flex flex-col gap-10 text-center">
+                {navLinks.map((link, i) => (
+                  <motion.li
+                    key={link.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    {link.name === "Contact" ? (
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className="bg-primary text-black px-12 py-5 rounded-full font-black text-xs uppercase tracking-[0.3em] inline-block shadow-2xl shadow-primary/30 mt-4"
+                      >
+                        Book / Contact
+                      </Link>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className="text-2xl font-black uppercase tracking-[0.4em] text-black hover:text-primary transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </motion.li>
+                ))}
+              </ul>
+
+              <div className="absolute bottom-10 text-[10px] font-black uppercase tracking-[0.5em] text-gray-300">
+                Essence Unisex Studio
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
