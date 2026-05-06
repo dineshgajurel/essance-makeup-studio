@@ -17,9 +17,9 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-xl text-primary mb-6 font-medium">
-              Essence Unisex Studio
+              Essence Unisex Makeup Studio
             </h4>
-            <p className="text-gray-300 mb-2">Ghataghar complex, 3rd floor</p>
+            <p className="text-gray-300 mb-2">Ghataghar complex, 2nd floor</p>
             <p className="text-gray-300 mb-2">Ghataghar, Bhaktapur</p>
             <p className="text-gray-300">9762116374</p>
           </div>
@@ -67,7 +67,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-gray-500 text-sm gap-4 text-center md:text-left">
-          <div>&copy; 2026 Essence Unisex Studio. All Rights Reserved.</div>
+          <div>&copy; 2026 Essence Unisex Makeup Studio. All Rights Reserved.</div>
           <div className="flex flex-col sm:flex-row items-center gap-1">
             <span>Made with ❤️ for your inner & outer beauty | Developed by</span>
             <a 

@@ -194,7 +194,7 @@ export default function Navbar() {
               
               <div className="p-10 text-center relative z-10 border-t border-white/5 bg-black/50 backdrop-blur-md">
                 <div className="text-[10px] font-black uppercase tracking-[0.6em] text-gray-500">
-                  ESSENCE UNISEX STUDIO
+                  ESSENCE UNISEX MAKEUP STUDIO
                 </div>
               </div>
             </motion.div>

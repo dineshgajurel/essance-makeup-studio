@@ -36,7 +36,7 @@ export default function AdminSettings() {
             <label className="text-[10px] uppercase font-black tracking-widest text-gray-500 ml-1">Studio Name</label>
             <input 
               type="text" 
-              defaultValue="Essence Unisex Studio"
+              defaultValue="Essence Unisex Makeup Studio"
               className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-primary/50 text-white font-bold"
             />
           </div>
@@ -57,7 +57,7 @@ export default function AdminSettings() {
               <MapPin size={18} className="absolute left-6 top-1/2 -translate-y-1/2 text-primary" />
               <input 
                 type="text" 
-                defaultValue="Ghataghar complex, 3rd floor, Ghataghar, Bhaktapur"
+                defaultValue="Ghataghar complex, 2nd floor, Ghataghar, Bhaktapur"
                 className="w-full bg-white/5 border border-white/10 rounded-2xl pl-14 pr-6 py-4 focus:outline-none focus:border-primary/50 text-white font-bold"
               />
             </div>

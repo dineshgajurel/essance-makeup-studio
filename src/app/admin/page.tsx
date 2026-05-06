@@ -125,7 +125,7 @@ export default function AdminDashboard() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
         <div className="w-full md:w-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-white">Dashboard</h2>
-          <p className="text-gray-500 mt-2 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Essence Unisex Studio Analytics</p>
+          <p className="text-gray-500 mt-2 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Essence Unisex Makeup Studio Analytics</p>
         </div>
         
         <div className="flex bg-white/5 p-1 rounded-2xl border border-white/10 backdrop-blur-xl w-full md:w-auto overflow-x-auto no-scrollbar">

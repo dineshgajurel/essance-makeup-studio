@@ -8,8 +8,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Essence | Unisex Studio | Nepal",
-  description: "Elevating Beauty, Naturally. Welcome to Essence Unisex Studio in Kathmandu.",
+  title: "Essence | Unisex Makeup Studio | Nepal",
+  description: "Elevating Beauty, Naturally. Welcome to Essence Unisex Makeup Studio in Kathmandu.",
 };
 
 export default function RootLayout({

@@ -118,7 +118,7 @@ export default function AdminLogin() {
 
       {/* Footer Branding */}
       <div className="absolute bottom-8 text-gray-800 text-[10px] font-black tracking-[0.4em] uppercase pointer-events-none text-center px-6">
-        Essence Unisex Studio &copy; 2026
+        Essence Unisex Makeup Studio &copy; 2026
       </div>
     </div>
   );
