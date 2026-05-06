@@ -5,9 +5,8 @@ import { useState } from "react";
 export default function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
 
-  // IMPORTANT: The user needs to replace this URL with their Google Form POST URL
-  // Example: https://docs.google.com/forms/d/e/1FAIpQLS..../formResponse
-  const googleFormActionUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdngPRX7cQRGP4guPreihMsMP4JJ1JtUFXvqiKhLnB94DNMgA/formResponse";
+  // Google Form POST URL for "Essence Studio - Booking"
+  const googleFormActionUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScSI6fJ7Pt0y-0iHvp9ZyDiCBEgPNvYm7jiexN7ir8NsHSm2g/formResponse";
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -97,7 +96,7 @@ export default function BookingForm() {
                   <input
                     type="text"
                     id="name"
-                    name="entry.484721197"
+                    name="entry.1051784606"
                     required
                     placeholder="Your Full Name"
                     className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-text-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
@@ -112,7 +111,7 @@ export default function BookingForm() {
                   <input
                     type="tel"
                     id="phone"
-                    name="entry.2021905219"
+                    name="entry.382908707"
                     required
                     placeholder="9XXXXXXXXX"
                     className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-text-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
@@ -128,7 +127,7 @@ export default function BookingForm() {
                   </label>
                   <select
                     id="service"
-                    name="entry.1260614881"
+                    name="entry.273062606"
                     required
                     defaultValue=""
                     className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-text-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none cursor-pointer"
@@ -157,7 +156,7 @@ export default function BookingForm() {
                   <input
                     type="date"
                     id="date"
-                    name="entry.117885170"
+                    name="entry.1520999059"
                     required
                     className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-text-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                   />
@@ -173,7 +172,7 @@ export default function BookingForm() {
                 </label>
                 <textarea
                   id="message"
-                  name="entry.259641505"
+                  name="entry.544507033"
                   rows={4}
                   placeholder="Any specific services or questions? e.g. Bridal makeup for Saturday"
                   className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-text-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
